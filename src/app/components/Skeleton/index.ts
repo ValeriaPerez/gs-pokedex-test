@@ -1,3 +1,4 @@
-import Skeleton from './Skeleton';
+import Skeleton from './Skeleton'
 
-export default Skeleton;
+export type { SkeletonProps } from './Skeleton.props'
+export default Skeleton

@@ -1,0 +1,20 @@
+.Filter {
+  &.isDark {
+    & label {
+      color: white;
+    }
+
+    & .css-1ebk7fo-MuiFormControl-root {
+      border: 1px solid white;
+    }
+
+    & svg {
+      fill: white;
+    }
+
+    & .css-d9oaum-MuiSelect-select-MuiInputBase-input-MuiFilledInput-input.css-d9oaum-MuiSelect-select-MuiInputBase-input-MuiFilledInput-input.css-d9oaum-MuiSelect-select-MuiInputBase-input-MuiFilledInput-input {
+      color: white;
+    }
+
+  }
+}

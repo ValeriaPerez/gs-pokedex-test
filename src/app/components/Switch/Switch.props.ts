@@ -1,4 +1,4 @@
 export interface SwitchProps {
-    onClick: () => void;
-    isDark: boolean;
+    onClick: () => void
+    isDark: boolean
 }

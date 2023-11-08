@@ -6,7 +6,7 @@ import type { CardProps } from './Card.props'
 import './Card.styles.scss'
 
 const MAIN_CLASS = 'Card'
-const DARK_CLASS = 'isDark';
+const DARK_CLASS = 'isDark'
 
 function Card({
   name = 'card',
@@ -19,10 +19,10 @@ function Card({
   types,
   id,
 }: CardProps) {
-  const { isDark } = useDark();
+  const { isDark } = useDark()
   const className: string = [MAIN_CLASS, isDark && `${DARK_CLASS}`]
     .filter(Boolean)
-    .join(' ');
+    .join(' ')
 
   return (
     <ImageListItem className={className} onClick={onClick}>
@@ -40,7 +40,7 @@ function Card({
       {movements}
       {skills}
     </ImageListItem>
-  );
+  )
 }
 
-export default Card;
+export default Card
