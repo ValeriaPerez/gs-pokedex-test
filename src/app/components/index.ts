@@ -4,6 +4,7 @@ import SkeletonSelect from './SkeletonSelect'
 import Header from './Header'
 import SwitchComponent from './Switch'
 import Filter from './Filter'
+import SimplePagination from './Pagination'
 
 export {
   Card,
@@ -11,5 +12,6 @@ export {
   SkeletonSelect,
   Header,
   SwitchComponent,
-  Filter
+  Filter,
+  SimplePagination
 };

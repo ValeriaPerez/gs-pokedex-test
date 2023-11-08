@@ -1,0 +1,30 @@
+.SimplePagination {
+  color: black;
+  border-color: black;
+  padding: 1em 0;
+
+  & button {
+    color: black;
+    border-color: black;
+  }
+
+  & button:disabled {
+    color: #808080;
+    border-color:  #808080;
+  }
+
+  &.isDark {
+    color: white;
+    border-color: white;
+
+    & button {
+      color: white !important;
+      border-color: white !important;
+    }
+
+    & button:disabled {
+      color: #808080;
+      border-color:  #808080;
+    }
+  }
+}

@@ -2,7 +2,7 @@
 import Container from '@mui/material/Container'
 import { useDark } from './context'
 import { useFetchPokemons, useFetchTypes } from './hooks'
-import { Header, Skeleton, SkeletonSelect, Card, Filter } from './components'
+import { Header, Skeleton, SkeletonSelect, Card, Filter, SimplePagination } from './components'
 import Box from '@mui/material/Box'
 import ImageList from '@mui/material/ImageList'
 import { useEffect, useState } from 'react'
@@ -11,11 +11,12 @@ const MAIN_CLASS = 'main';
 const DARK_CLASS = 'isDark';
 
 export default function Home() {
+  const [page, setPage] = useState(1)
   const [typeSelected, setTypeSelected] = useState<string>('')
   const [dataFilter, setDataFilter] = useState<any>([])
   const {isDark, setIsDark} = useDark()
-  const {data: pokemons, isLoading} = useFetchPokemons()
-  const {data: types, isLoading: isLoadingType } = useFetchTypes()
+  const {data: pokemons, isLoading, prev, next} = useFetchPokemons(page)
+  const {data: types, isLoading: isLoadingType} = useFetchTypes()
 
   useEffect(() => {
     async function filterPokemons() {
@@ -47,43 +48,57 @@ export default function Home() {
     setTypeSelected(type)
   }
 
+  const handleChangePage = (action: string) => {
+    if (action === 'next') {
+      setPage(page + 1);
+    }
+    if (action === 'prev') {
+      setPage(page - 1);
+    }
+  };
+
   return (
     <main className={className}>
       <Header onClick={handleDarkMode} />
       <Container>
-        { isLoadingType && <SkeletonSelect /> }
-        { !isLoadingType && types &&
-          <Box mb={4} mt={4}>
-            <Filter type={typeSelected} types={types} setTypes={handleSelectType} />
+        <Box justifyContent='center' mb={4} mt={4}>
+          { isLoadingType && <SkeletonSelect /> }
+          { !isLoadingType && types && <Filter type={typeSelected} types={types} setTypes={handleSelectType} /> }
+        </Box>
+        {isLoading ? <Skeleton items={[1,2,3]} /> : 
+          <Box>
+            <ImageList variant="masonry" cols={3} gap={8}>
+              {dataFilter.length > 0 && dataFilter.map((pokemon: any, index: number) => {
+                return (
+                  <Card
+                    key={index}
+                    id={pokemon.id}
+                    name={pokemon.name}
+                    image={pokemon.sprites.other.dream_world.front_default}
+                    types={pokemon.types}
+                  />
+                )
+              })}
+              {dataFilter.length === 0 && pokemons && pokemons.map((pokemon: any, index: number) => {
+                return (
+                  <Card
+                    key={index}
+                    id={pokemon.id}
+                    name={pokemon.name}
+                    image={pokemon.sprites.other.dream_world.front_default}
+                    types={pokemon.types}
+                  />
+                )
+              })}
+            </ImageList>
           </Box>
         }
-        <Box>
-          <ImageList variant="masonry" cols={3} gap={8}>
-            {dataFilter.length > 0 && dataFilter.map((pokemon: any, index: number) => {
-              return (
-                <Card
-                  key={index}
-                  id={pokemon.id}
-                  name={pokemon.name}
-                  image={pokemon.sprites.other.dream_world.front_default}
-                  types={pokemon.types}
-                />
-              )
-            })}
-            {dataFilter.length === 0 && pokemons && pokemons.map((pokemon: any, index: number) => {
-              return (
-                <Card
-                  key={index}
-                  id={pokemon.id}
-                  name={pokemon.name}
-                  image={pokemon.sprites.other.dream_world.front_default}
-                  types={pokemon.types}
-                />
-              )
-            })}
-          </ImageList>
-        </Box>
-        {isLoading && <Skeleton items={[1,2,3]}/>}
+        <SimplePagination
+          page={page}
+          next={() => handleChangePage('next')}
+          prev={() => handleChangePage('prev')}
+          isPrev={prev}
+          isNext={next} />
       </Container>
     </main>
   )

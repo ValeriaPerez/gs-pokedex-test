@@ -17,7 +17,7 @@ function SkeletonSelectMock() {
   return (
     <>
       <Grid className={className} container wrap="nowrap">
-        <Box sx={{ width: 610, marginRight: 0.5, mb: 3 }}>
+        <Box sx={{ mb: 3 }}>
           <Skeleton variant="rectangular" width={500} height={100} />
         </Box>
       </Grid>

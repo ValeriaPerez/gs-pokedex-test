@@ -73,7 +73,7 @@ export default function Page() {
               {infoPokemon.map((item: any, index) => {
                 return (
                   <div key={index}>
-                    <Typography component="legend">{item?.stat.name}</Typography>
+                    <Typography component="legend">{item?.stat.name === 'attack' ? 'Nivel de ataque' : 'Nivel de defensa'}</Typography>
                     <Rating readOnly name="customized-10" defaultValue={(item.base_stat) / 100 * 10} precision={0.5} max={10}/>
                   </div>
                 )
