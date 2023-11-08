@@ -53,6 +53,7 @@ export default function Page() {
     getDetaiilAttackAndDefense()
   }, [pokemon])
 
+  console.log(pokemon)
   return (
     <div className={className}>
       <Header onClick={handleDarkMode} />
@@ -70,13 +71,36 @@ export default function Page() {
               <Typography gutterBottom sx={{ fontSize: 40, fontWeight: 800, textTransform: 'uppercase'}}>
                 {pokemon.name}  - <span style={{fontSize: 40, fontWeight: 300}}>#{pokemon.id}</span>
               </Typography>
-              {infoPokemon.map((item: any, index) => {
+              {infoPokemon.map((item: any, index: number) => {
                 return (
                   <div key={index}>
                     <Typography component="legend">{item?.stat.name === 'attack' ? 'Nivel de ataque' : 'Nivel de defensa'}</Typography>
                     <Rating readOnly name="customized-10" defaultValue={(item.base_stat) / 100 * 10} precision={0.5} max={10}/>
                   </div>
                 )
+              })}
+
+              <Typography gutterBottom sx={{ fontSize: 20, fontWeight: 800, textTransform: 'uppercase'}}>
+                Habilidades
+              </Typography>
+              {pokemon?.abilities?.map((ability: any, index: number) => {
+                return (
+                  <Typography key={index} gutterBottom component="legend">
+                    {ability.ability.name}
+                  </Typography>
+                )
+              })}
+
+              <Typography gutterBottom sx={{ fontSize: 20, fontWeight: 800, textTransform: 'uppercase'}}>
+                Movimientos
+              </Typography>
+              {pokemon?.moves?.map((move: any, index: number) => {
+                if (index < 100 ) {
+                  return (
+                    <Typography key={index} gutterBottom component="legend">
+                      {move.move.name}
+                    </Typography>
+                  )}
               })}
             </Stack>
           </Stack>
