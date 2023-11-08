@@ -22,8 +22,6 @@ export default function Home() {
       let newArrayPokemons: any[] = []
       pokemons.map((pokemon: any) => {
         pokemon.types.map((type: any) => {
-          console.log(type.type.name)
-          console.log('_', typeSelected)
           if (type.type.name === typeSelected) newArrayPokemons.push(pokemon)
         })
       })
@@ -69,6 +67,7 @@ export default function Home() {
                   id={pokemon.id}
                   name={pokemon.name}
                   image={pokemon.sprites.other.dream_world.front_default}
+                  types={pokemon.types}
                 />
               )
             })}
@@ -79,12 +78,13 @@ export default function Home() {
                   id={pokemon.id}
                   name={pokemon.name}
                   image={pokemon.sprites.other.dream_world.front_default}
+                  types={pokemon.types}
                 />
               )
             })}
           </ImageList>
         </Box>
-        {isLoading && <Skeleton />}
+        {isLoading && <Skeleton items={[1,2,3]}/>}
       </Container>
     </main>
   )

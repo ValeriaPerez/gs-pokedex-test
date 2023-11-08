@@ -18,7 +18,6 @@
     "next-translate-plugin": "^2.6.2",
     "react": "^18",
     "react-dom": "^18",
-    "react-router-dom": "^6.0.1",
     "sass": "^1.69.5"
   },
   "devDependencies": {

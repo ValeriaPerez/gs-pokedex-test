@@ -26,10 +26,8 @@ const Filter = ({ type, types, setTypes }: FilterProps ) => {
       className={className}
     >
       <FormControl variant='filled' sx={{ m: 1, minWidth: 420 }}>
-        <InputLabel id='demo-simple-select-standard-label'>Busca por tipo</InputLabel>
+        <InputLabel>Busca por tipo</InputLabel>
         <Select
-          labelId='demo-simple-select-standard-label'
-          id='demo-simple-select-standard'
           value={type}
           onChange={(e) => setTypes(e.target.value)}
           label='Status'

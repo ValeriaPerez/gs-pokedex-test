@@ -5,5 +5,24 @@
 
   &.isDark {
     border: 1px solid white;
+
+    & .Card__description {
+      background-color: #c10000;
+
+      &--poison {
+        background-color: purple;
+      }
+    }
+  }
+
+  &__description {
+    padding: 0.9em 1em;
+    background-color: black;
+    color: white;
+    border-radius: 4px;
+
+    &--poison {
+      background-color: chartreuse;
+    }
   }
 }
