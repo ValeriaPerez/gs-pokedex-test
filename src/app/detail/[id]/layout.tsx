@@ -1,5 +1,4 @@
 import type { Metadata } from 'next'
-import { DarkProvider } from '../../context'
 
 export const metadata: Metadata = {
   title: 'Detalle',
@@ -12,10 +11,8 @@ export default function DetailLayout({
   children: React.ReactNode
 }) {
   return (
-    <DarkProvider>
-      <html lang="en">
-        <body>{children}</body>
-      </html>
-    </DarkProvider>
+    <html lang="en">
+      <body>{children}</body>
+    </html>
   )
 }

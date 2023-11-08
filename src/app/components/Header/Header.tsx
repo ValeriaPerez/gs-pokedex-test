@@ -1,5 +1,7 @@
+import Link from 'next/link'
 import { useDark } from '../../context'
 import { SwitchComponent } from '../../components'
+import CardMedia from '@mui/material/CardMedia'
 import type { HeaderProps } from './Header.props'
 
 import './Header.styles.scss'
@@ -20,7 +22,14 @@ const Header = ({
 
   return (
     <div className={className}>
-      <h6 className='Header__title'>Pokedex</h6>
+      <Link href='/'>
+        <CardMedia
+          component='img'
+          height='50'
+          width='300'
+          image={'https://archives.bulbagarden.net/media/upload/4/4b/Pok%C3%A9dex_logo.png'}
+        />
+      </Link>
       <div>
         <SwitchComponent onClick={onClick} isDark={isDark} />
       </div>
