@@ -1,0 +1,26 @@
+@import '../../styles/index.scss';
+
+.Header {
+  align-items: center;
+  align-items: flex-start;
+  background-color: $white;
+  color: $black;
+  display: flex;
+  justify-content: space-between;
+  padding: 1em;
+  width: 100%;
+
+  &__title {
+    font-size: 40px;
+    margin: 0;
+  }
+
+  &.isDark {
+    background-color: $dark-blue;
+    color: $white;
+
+    .GameHeader__title {
+      color: $white;
+    }
+  }
+}

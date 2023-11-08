@@ -1,0 +1,9 @@
+.Card {
+  border: 1px solid black;
+  border-radius: 4px;
+  padding: 10px;
+
+  &.isDark {
+    border: 1px solid white;
+  }
+}
