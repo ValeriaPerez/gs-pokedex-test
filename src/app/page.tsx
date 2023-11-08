@@ -32,7 +32,6 @@ export default function Home() {
     filterPokemons()
   }, [pokemons, typeSelected])
 
-
   const className: string = [
     MAIN_CLASS,
     isDark && `${DARK_CLASS}`,

@@ -25,8 +25,6 @@ export default function Page() {
   const {data: pokemon, isLoading} = useFetchPokemonByID(search || '')
   const [infoPokemon, setInfoPokemon] = useState([])
 
-  console.log('pokemon', pokemon)
-
   const className: string = [
     MAIN_CLASS,
     isDark && `${DARK_CLASS}`,
@@ -54,9 +52,6 @@ export default function Page() {
 
     getDetaiilAttackAndDefense()
   }, [pokemon])
-
-
-  console.log('infoPokemon', infoPokemon)
 
   return (
     <div className={className}>

@@ -9,7 +9,7 @@ const useFetchPokemons = () => {
   const [error, setError] = useState({})
 
   useEffect(() => {
-    const fetchPokemons = async (limit = 50) => {
+    const fetchPokemons = async (limit = 100000) => {
       try {
         setIsLoading(true)
         const response = await fetch(`${URL}pokemon?limit=${limit}&offset=${offset}`)

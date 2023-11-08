@@ -6,13 +6,6 @@
   &.isDark {
     border: 1px solid white;
 
-    & .Card__description {
-      background-color: #c10000;
-
-      &--poison {
-        background-color: purple;
-      }
-    }
   }
 
   &__description {
@@ -21,8 +14,84 @@
     color: white;
     border-radius: 4px;
 
+    &--normal {
+      background-color: rgb(60, 19, 17);
+    }
+
     &--poison {
-      background-color: chartreuse;
+      background-color: purple;
+    }
+
+    &--fighting {
+      background-color: #800000;
+    }
+
+    &--flying {
+      background-color: #3e9bc9;
+    }
+
+    &--ground {
+      background-color: #744111;
+    }
+
+    &--rock {
+      background-color: #5e5d5c;
+    }
+
+    &--bug {
+      background-color: #56853e;
+    }
+
+    &--ghost {
+      background-color: #6a52d4;
+    }
+
+    &--steel {
+      background-color: #817f8b;
+    }
+
+    &--fire {
+      background-color: #b72416;
+    }
+
+    &--water {
+      background-color: #2865a4;
+    }
+
+    &--grass {
+      background-color: #17660b;
+    }
+
+    &--electric {
+      background-color: #cab11f;
+    }
+
+    &--psychic {
+      background-color: #9709C4;
+    }
+
+    &--ice {
+      background-color: #4ab3f1;
+    }
+
+    &--dragon {
+      background-color: #8f1019;
+    }
+
+    &--dark {
+      background-color: #211718;
+    }
+
+    &--fairy {
+      background-color: #2b978a;
+    }
+
+    &--unknown {
+      background-color: rgb(15, 4, 15);
+    }
+
+    &--shadow {
+      background-color: #4d4e4e;
     }
   }
 }
