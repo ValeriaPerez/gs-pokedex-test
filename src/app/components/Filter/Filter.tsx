@@ -25,7 +25,7 @@ const Filter = ({ type, types, setTypes }: FilterProps ) => {
       spacing={2}
       className={className}
     >
-      <FormControl variant='filled' sx={{ m: 1, minWidth: 420 }}>
+      <FormControl variant='filled' sx={{ minWidth: 350 }}>
         <InputLabel>Busca por tipo</InputLabel>
         <Select
           value={type}

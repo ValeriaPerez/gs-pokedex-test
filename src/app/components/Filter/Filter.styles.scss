@@ -4,8 +4,8 @@
       color: white;
     }
 
-    & .css-1ebk7fo-MuiFormControl-root {
-      border: 1px solid white;
+    & .css-1ebk7fo-MuiFormControl-root, .MuiFormControl-root {
+      border: 1px solid white !important;
     }
 
     & svg {
@@ -15,6 +15,5 @@
     & .css-d9oaum-MuiSelect-select-MuiInputBase-input-MuiFilledInput-input.css-d9oaum-MuiSelect-select-MuiInputBase-input-MuiFilledInput-input.css-d9oaum-MuiSelect-select-MuiInputBase-input-MuiFilledInput-input {
       color: white;
     }
-
   }
 }
