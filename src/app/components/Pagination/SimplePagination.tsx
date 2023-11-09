@@ -22,8 +22,6 @@ const SimplePagination = ({
     .filter(Boolean)
     .join('')
 
-    console.log(isNext)
-    console.log(isPrev)
   return (
     <div className={className}>
       <Stack
