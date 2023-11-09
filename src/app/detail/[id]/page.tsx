@@ -9,6 +9,8 @@ import Typography from '@mui/material/Typography'
 import CardMedia from '@mui/material/CardMedia'
 import Stack from '@mui/material/Stack'
 import Rating from '@mui/material/Rating'
+import Chip from '@mui/material/Chip'
+import PsychologyIcon from '@mui/icons-material/Psychology';
 
 import { useDark } from '../../context'
 import { useFetchPokemonByID } from '../../hooks'
@@ -80,28 +82,40 @@ export default function Page() {
                 )
               })}
 
-              <Typography gutterBottom sx={{ fontSize: 20, fontWeight: 800, textTransform: 'uppercase'}}>
+              <Typography mt={4} gutterBottom sx={{ fontSize: 20, fontWeight: 800, textTransform: 'uppercase'}}>
                 Habilidades
               </Typography>
-              {pokemon?.abilities?.map((ability: any, index: number) => {
-                return (
-                  <Typography key={index} gutterBottom component="legend">
-                    {ability.ability.name}
-                  </Typography>
-                )
-              })}
+              <Stack
+                direction='row'
+                justifyContent='flex-start'
+                alignItems='flex-start'
+                spacing={2}
+                flexWrap='wrap'
+                mb={4}
+                >
+                {pokemon?.abilities?.map((ability: any, index: number) => {
+                  return (
+                    <Chip key={index} icon={<PsychologyIcon />} color="success" variant="filled" label={ability.ability.name} />
+                  )
+                })}
+              </Stack>
 
-              <Typography gutterBottom sx={{ fontSize: 20, fontWeight: 800, textTransform: 'uppercase'}}>
+              <Typography mt={4} gutterBottom sx={{ fontSize: 20, fontWeight: 800, textTransform: 'uppercase'}}>
                 Movimientos
               </Typography>
-              {pokemon?.moves?.map((move: any, index: number) => {
-                if (index < 100 ) {
+              <Stack
+                mb={4}
+                direction='row'
+                justifyContent='flex-start'
+                alignItems='flex-start'
+                spacing={2}
+                flexWrap='wrap'>
+                {pokemon?.moves?.map((move: any, index: number) => {
                   return (
-                    <Typography key={index} gutterBottom component="legend">
-                      {move.move.name}
-                    </Typography>
-                  )}
-              })}
+                    <Chip key={index} size='small' color='info' label={move.move.name} />
+                  )
+                })}
+              </Stack>
             </Stack>
           </Stack>
         }
