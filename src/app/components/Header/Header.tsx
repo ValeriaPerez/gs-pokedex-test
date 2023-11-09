@@ -27,7 +27,7 @@ const Header = ({
           component='img'
           height='50'
           width='300'
-          image={'https://archives.bulbagarden.net/media/upload/4/4b/Pok%C3%A9dex_logo.png'}
+          image={'https://miro.medium.com/v2/resize:fit:4000/1*Zaty9dpItL2UsDofl3Cj0g.png'}
         />
       </Link>
       <div>
