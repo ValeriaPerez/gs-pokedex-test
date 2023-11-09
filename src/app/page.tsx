@@ -5,6 +5,7 @@ import { useFetchPokemons, useFetchTypes } from './hooks'
 import { Header, Skeleton, SkeletonSelect, Card, Filter, SimplePagination } from './components'
 import Box from '@mui/material/Box'
 import ImageList from '@mui/material/ImageList'
+import Grid from '@mui/material/Grid';
 import { useEffect, useState } from 'react'
 
 const MAIN_CLASS = 'main';
@@ -66,31 +67,35 @@ export default function Home() {
           { !isLoadingType && types && <Filter type={typeSelected} types={types} setTypes={handleSelectType} /> }
         </Box>
         {isLoading ? <Skeleton items={[1,2,3]} /> : 
-          <Box>
-            <ImageList variant="masonry" cols={3} gap={8}>
+          <Box sx={{ flexGrow: 1 }}>
+            <Grid container spacing={{ xs: 1, md: 3 }} columns={{ xs: 1, sm: 1, md: 3 }}>
               {dataFilter.length > 0 && dataFilter.map((pokemon: any, index: number) => {
                 return (
-                  <Card
-                    key={index}
-                    id={pokemon.id}
-                    name={pokemon.name}
-                    image={pokemon.sprites.other.dream_world.front_default}
-                    types={pokemon.types}
-                  />
+                  <Grid item xs={1} sm={1} md={1} key={index}>
+                    <Card
+                      key={index}
+                      id={pokemon.id}
+                      name={pokemon.name}
+                      image={pokemon.sprites.other.dream_world.front_default}
+                      types={pokemon.types}
+                    />
+                  </Grid>
                 )
               })}
               {dataFilter.length === 0 && pokemons && pokemons.map((pokemon: any, index: number) => {
                 return (
-                  <Card
-                    key={index}
-                    id={pokemon.id}
-                    name={pokemon.name}
-                    image={pokemon.sprites.other.dream_world.front_default}
-                    types={pokemon.types}
-                  />
+                  <Grid item xs={1} sm={1} md={1} key={index}>
+                    <Card
+                      key={index}
+                      id={pokemon.id}
+                      name={pokemon.name}
+                      image={pokemon.sprites.other.dream_world.front_default}
+                      types={pokemon.types}
+                    />
+                  </Grid>
                 )
               })}
-            </ImageList>
+            </Grid>
           </Box>
         }
         <SimplePagination
