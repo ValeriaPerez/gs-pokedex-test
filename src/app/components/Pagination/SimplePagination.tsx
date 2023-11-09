@@ -22,6 +22,8 @@ const SimplePagination = ({
     .filter(Boolean)
     .join('')
 
+    console.log(isNext)
+    console.log(isPrev)
   return (
     <div className={className}>
       <Stack
@@ -32,11 +34,11 @@ const SimplePagination = ({
         alignItems='center'
         spacing={5}
       >
-        <Button disabled={isPrev || page === 1} onClick={prev} variant='outlined'>Anterior</Button>
+        <Button disabled={!isPrev || page === 1} onClick={prev} variant='outlined'>Anterior</Button>
         <Typography sx={{ fontSize: 14 }} gutterBottom>
           pagina: <strong>{page}</strong>
         </Typography>
-        <Button disabled={isNext} onClick={next} variant='outlined'>Siguiente</Button>
+        <Button disabled={!isNext} onClick={next} variant='outlined'>Siguiente</Button>
       </Stack>
     </div>
   )

@@ -55,7 +55,6 @@ export default function Page() {
     getDetaiilAttackAndDefense()
   }, [pokemon])
 
-  console.log(pokemon)
   return (
     <div className={className}>
       <Header onClick={handleDarkMode} />
